@@ -14,5 +14,5 @@ export default new DataSource({
     rejectUnauthorized: false,
   },
   entities: ["src/app/shared/database/entities/**/*.ts"],
-  migrations: ["src/app/shared/database/entities/**/*.ts"],
+  migrations: ["src/app/shared/database/migrations/**/*.ts"],
 });

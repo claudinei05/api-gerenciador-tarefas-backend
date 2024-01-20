@@ -55,7 +55,7 @@ export class UserModel {
       user: this._user,
       password: this._password,
       confirmPassword: this._confirmPassword,
-      tank: this._tank,
+      // tank: this._tank,
     };
   }
 

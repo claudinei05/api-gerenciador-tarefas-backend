@@ -35,4 +35,14 @@ export class UserRepository {
     return result;
     //return this.mapEntityToModel(result).toJson();
   }
+  public async login(user: string, password: string): Promise<any> {
+    const result = await this.repository.findOne({
+      where: {
+        usuario: user,
+        senha: password,
+      },
+    });
+
+    return result;
+  }
 }

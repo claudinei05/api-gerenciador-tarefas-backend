@@ -1,4 +1,3 @@
-//import { Return } from "../../../shared/util/usecase.return";
 import { UserRepository } from "../repositores/user.repository";
 
 interface loginUserParams {
@@ -8,8 +7,6 @@ interface loginUserParams {
 
 export class LoginUserUsecase {
   public async execute(data: loginUserParams) {
-    // public async execute(data: loginUserParams): Promise<Return> {
-
     const database = new UserRepository();
 
     const result = await database.login(data.user, data.password);

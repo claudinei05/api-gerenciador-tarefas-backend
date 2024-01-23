@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import { UserRepository } from "../repositores/user.repository";
-//import { ErrorServer } from "../../../shared/erros/server.error";
 
 export class CreateUserValidator {
   public static async userValidate(
@@ -11,14 +10,6 @@ export class CreateUserValidator {
     try {
       const { name, user, password, confirmPassword } = req.body;
 
-      //const database = new UserRepository();
-      //const validUser = await database.getUser(user);
-      // if (validUser) {
-      //   return res.status(400).send({
-      //     ok: false,
-      //     message: "User already exists (User já existe)",
-      //   });
-      // }
       if (
         name === "" ||
         user === "" ||
@@ -58,7 +49,6 @@ export class CreateUserValidator {
 
       next();
     } catch (error: any) {
-      // return ErrorServer.errorServerProcessing(res, error);
       return res.status(500).send({
         ok: false,
         message: error.toString("Internal Serve Error"),

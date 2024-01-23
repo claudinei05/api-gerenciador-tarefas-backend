@@ -3,7 +3,7 @@ import { databaseEnv } from "../../app/envs/database.env";
 
 export default new DataSource({
   type: "postgres",
-  //url:""
+
   host: databaseEnv.host,
   username: databaseEnv.username,
   password: databaseEnv.password,

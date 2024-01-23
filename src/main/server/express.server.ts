@@ -5,8 +5,5 @@ export class Server {
   public static run() {
     const app = createApp();
     app.listen(serverEnv.port, () => console.log("Server is running"));
-    // app.listen(serverEnv.port, () => {
-    //   console.log("Server is running");
-    // });
   }
 }

@@ -1,7 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-//import { Return } from "../../../shared/util/usecase.return";
 import { UserRepository } from "../repositores/user.repository";
-//import { ErrorServer } from "../../../shared/erros/server.error";
 
 export class LoginUserValidator {
   public static async loginValidator(
@@ -21,7 +19,6 @@ export class LoginUserValidator {
       }
       next();
     } catch (error) {
-      // return ErrorServer.errorServerProcessing(res, error);
       return res.status(500).send({
         ok: false,
         message: "Internal Serve Error",

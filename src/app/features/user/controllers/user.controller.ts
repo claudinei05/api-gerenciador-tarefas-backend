@@ -1,9 +1,6 @@
 import { Request, Response } from "express";
 import { CreateUserCase } from "../usecase/create-user.usecase";
 import { LoginUserUsecase } from "../usecase/login-user.usecase";
-//import { ErrorServer } from "../../../shared/erros/server.error";
-
-//import { LoginUserUsecase } from "../usecases/login-user.usecase";
 
 export class userController {
   public async createUser(req: Request, res: Response) {
@@ -19,7 +16,6 @@ export class userController {
       });
       return res.status(result.code).send(result);
     } catch (error: any) {
-      //return ErrorServer.errorServerProcessing(res, error);
       return res.status(500).send({
         ok: false,
         message: error.toString("Internal Serve Error"),
@@ -37,7 +33,6 @@ export class userController {
       });
       return res.status(result.code).send(result);
     } catch (error: any) {
-      //return ErrorServer.errorServerProcessing;
       return res.status(500).send({
         ok: false,
         message: error.toString("Internal Serve Error"),

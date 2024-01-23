@@ -1,15 +1,15 @@
 import { TypeormConnection } from "../../../../main/database/typeorm.connection";
 import { UserModel } from "../../../models/user.models";
 import { UserEntity } from "../../../shared/database/entities/user.entity";
+import { TanksRepository } from "../../tanks/repositores/tanks-repository";
 
 export class UserRepository {
   private repository = TypeormConnection.connection.getRepository(UserEntity);
 
-  private mapEntityModel(entity: UserEntity): UserModel {
+  private mapEntityToModel(entity: UserEntity): UserModel {
     const tanksEntity = entity.tanks ?? [];
     const tanks = tanksEntity.map((item) =>
-      // .mapEntityToModel(item)
-      console.log("aguardando")
+      TanksRepository.mapEntityToModel(item)
     );
 
     return UserModel.createModels(
@@ -17,8 +17,8 @@ export class UserRepository {
       entity.nome,
       entity.usuario,
       entity.senha,
-      entity.confirmPassword
-      // tanks
+      entity.confirmPassword,
+      tanks
     );
   }
   public async createDatabase(user: UserModel) {
@@ -28,13 +28,24 @@ export class UserRepository {
       usuario: user.user,
       senha: user.password,
       confirmPassword: user.confirmPassword,
-      // dthrCriacao: new Date(),
     });
 
     const result = await this.repository.save(userEntity);
-    return result;
-    //return this.mapEntityToModel(result).toJson();
+
+    return this.mapEntityToModel(result).toJson();
   }
+
+  public async getID(id: string) {
+    const result = await this.repository.findOneBy({
+      id,
+    });
+
+    if (result === null) {
+      return null;
+    }
+    return this.mapEntityToModel(result);
+  }
+
   public async login(user: string, password: string): Promise<any> {
     const result = await this.repository.findOne({
       where: {

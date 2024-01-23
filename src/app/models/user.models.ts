@@ -1,6 +1,5 @@
 import { v4 as createUuid } from "uuid";
 import { TanksModel } from "./tanks.models";
-// import { UserEntity } from "../shared/database/entities/user.entity";
 
 export class UserModel {
   private _id: string;
@@ -55,7 +54,7 @@ export class UserModel {
       user: this._user,
       password: this._password,
       confirmPassword: this._confirmPassword,
-      // tank: this._tank,
+      tank: this._tank,
     };
   }
 

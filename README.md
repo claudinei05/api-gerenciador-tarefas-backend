@@ -14,7 +14,9 @@ O GerenciadorTarefas é uma sistema de Gestão de listas de fazer.
 
 ### Orientações Para rodar o projeto
 
-1º Instalações das dependências - npm install
+1º Inicializar as instalação de bibliotecas e configuração
+
+npm install
 
 2º Variáveis de conexão com o banco de dados
 
@@ -31,7 +33,11 @@ O GerenciadorTarefas é uma sistema de Gestão de listas de fazer.
     - Criar Migration: npm run migration:generate -- src/app/shared/database/migrations/NomeMigration
 
     - Rodar Migration: npm run migration:run
+4º Rodar Projeto
 
+npm run dev
+
+---
 ### Caminhos e rotas
 
 1º Criar conta
@@ -62,6 +68,7 @@ O GerenciadorTarefas é uma sistema de Gestão de listas de fazer.
 - http://localhost:3333/user/:userId/tanks/idTank
   OBS: Substitua o parâmetro userId pelo ID do usuário e o campo idTank pelo ID da tarefa
 
+---
 - Usecases: Um arquivo para cada caso de uso
 - Controller: Um único arquivo contendo todos os métodos da feature
 - Repository: Um único arquivo contendo todos os métodos da feature

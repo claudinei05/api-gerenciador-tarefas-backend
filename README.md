@@ -16,7 +16,7 @@ O GerenciadorTarefas é uma sistema de Gestão de listas de fazer.
 
 1º Inicializar as instalação de bibliotecas e configuração
 
-npm install
+  npm install
 
 2º Variáveis de conexão com o banco de dados
 
@@ -35,7 +35,7 @@ npm install
     - Rodar Migration: npm run migration:run
 4º Rodar Projeto
 
-npm run dev
+  npm run dev
 
 ---
 ### Caminhos e rotas

@@ -10,7 +10,7 @@ import { TanksEntity } from "./tanks.entity";
 @Entity({
   name: "users",
 })
-export class UserEntity {
+class UserEntity {
   @PrimaryColumn()
   id: string;
 
@@ -41,3 +41,4 @@ export class UserEntity {
   @OneToMany(() => TanksEntity, (tanks) => tanks.user)
   tanks: TanksEntity[];
 }
+export default UserEntity;
